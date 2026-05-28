@@ -4,8 +4,24 @@ import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { StudioShell } from "@/components/studio/StudioShell";
-import { templates } from "@/content/templates";
+import { studioTemplates } from "@/content/studio/templates";
 import { cn } from "@/lib/utils";
+
+const statusLabel = {
+  idea: "Idea",
+  draft: "Borrador",
+  "in-progress": "En progreso",
+  ready: "Lista",
+  archived: "Archivada",
+};
+
+const categoryLabel = {
+  "premium-landing": "Landing premium",
+  "local-business": "Negocio local",
+  "ecommerce-storefront": "Ecommerce",
+  portfolio: "Portfolio",
+  saas: "SaaS",
+};
 
 export const metadata = {
   title: "Plantillas — LaunchFoundry",
@@ -30,34 +46,31 @@ export default function TemplatesPage() {
         </div>
 
         <div className="mt-8 grid gap-5 lg:grid-cols-3">
-          {templates.map((template) => {
-            const isAvailable = template.studioHref !== "#";
-
-            return (
-              <Card key={template.slug} className="border-white/10 bg-zinc-950 text-white">
-                <CardHeader>
-                  <div className="flex items-center justify-between gap-4">
-                    <Badge variant="outline" className="border-white/15 text-zinc-300">{template.type}</Badge>
-                    <Badge variant={template.status === "En progreso" ? "default" : "secondary"}>{template.status}</Badge>
-                  </div>
-                  <CardTitle className="pt-6 text-2xl text-white">{template.name}</CardTitle>
-                  <CardDescription className="leading-6">{template.description}</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="flex flex-wrap gap-2">
-                    {template.bestFor.map((item) => (
-                      <Badge key={item} variant="secondary">{item}</Badge>
-                    ))}
-                  </div>
-                  {isAvailable ? (
-                    <Link href={template.studioHref} className={cn(buttonVariants(), "mt-8 font-sans")}>Abrir demo</Link>
-                  ) : (
-                    <p className="mt-8 text-sm text-zinc-500">Más adelante</p>
-                  )}
-                </CardContent>
-              </Card>
-            );
-          })}
+          {studioTemplates.map((template) => (
+            <Card key={template.slug} className="border-white/10 bg-zinc-950 text-white">
+              <CardHeader>
+                <div className="flex items-center justify-between gap-4">
+                  <Badge variant="outline" className="border-white/15 text-zinc-300">{categoryLabel[template.category]}</Badge>
+                  <Badge>{statusLabel[template.status]}</Badge>
+                </div>
+                <CardTitle className="pt-6 text-2xl text-white">{template.name}</CardTitle>
+                <CardDescription className="leading-6">{template.visualDirection}</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="flex flex-wrap gap-2">
+                  {template.bestFor.map((item) => (
+                    <Badge key={item} variant="secondary">{item}</Badge>
+                  ))}
+                </div>
+                <div className="mt-8 flex gap-2">
+                  <Link href={template.studioHref} className={cn(buttonVariants(), "font-sans")}>Abrir ficha</Link>
+                  {template.demoHref ? (
+                    <Link href={template.demoHref} className={cn(buttonVariants({ variant: "outline" }), "font-sans")}>Demo</Link>
+                  ) : null}
+                </div>
+              </CardContent>
+            </Card>
+          ))}
         </div>
       </section>
     </StudioShell>

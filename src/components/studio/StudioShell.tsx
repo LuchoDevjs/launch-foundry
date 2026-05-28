@@ -8,7 +8,7 @@ const nav = [
   { label: "Panel", href: "/" },
   { label: "Plantillas", href: "/templates" },
   { label: "Clientes", href: "/clients" },
-  { label: "Sistema", href: "#" },
+  { label: "Sistema", href: "/system" },
 ];
 
 export function StudioShell({ children }: { children: ReactNode }) {
@@ -27,7 +27,7 @@ export function StudioShell({ children }: { children: ReactNode }) {
               </Link>
             ))}
           </nav>
-          <Link href="/templates/dark-premium" className={cn(buttonVariants({ variant: "outline" }), "font-sans")}>
+          <Link href="/demos/dark-premium" className={cn(buttonVariants({ variant: "outline" }), "font-sans")}>
             Ver demo
           </Link>
         </div>

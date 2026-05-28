@@ -9,7 +9,9 @@ import { clientProjects } from "@/content/studio/client-projects";
 import { serviceOffers } from "@/content/studio/offers";
 import { sectionLibrary } from "@/content/studio/section-library";
 import { studioTemplates } from "@/content/studio/templates";
+import { getTemplateReadiness } from "@/content/studio/template-readiness";
 import { integrationRecipes } from "@/content/studio/integration-recipes";
+import { calculateReadiness, getReadinessStatus } from "@/lib/studio/template-readiness";
 import { cn } from "@/lib/utils";
 
 const statusLabel = {
@@ -149,21 +151,32 @@ export default function Home() {
               <CardDescription>Activos reutilizables que podemos convertir en ventas.</CardDescription>
             </CardHeader>
             <CardContent className="space-y-3">
-              {studioTemplates.map((template) => (
-                <div key={template.slug} className="flex flex-col gap-4 rounded-2xl border border-white/10 bg-white/[0.03] p-5 md:flex-row md:items-center md:justify-between">
-                  <div>
-                    <div className="flex flex-wrap items-center gap-2">
-                      <p className="font-medium text-white">{template.name}</p>
-                      <Badge>{statusLabel[template.status]}</Badge>
+              {studioTemplates.map((template) => {
+                const readiness = getTemplateReadiness(template.slug);
+                const score = readiness ? calculateReadiness(readiness.items) : 0;
+
+                return (
+                  <div key={template.slug} className="rounded-2xl border border-white/10 bg-white/[0.03] p-5">
+                    <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+                      <div>
+                        <div className="flex flex-wrap items-center gap-2">
+                          <p className="font-medium text-white">{template.name}</p>
+                          <Badge>{statusLabel[template.status]}</Badge>
+                          <Badge variant="secondary">{getReadinessStatus(score)} · {score}%</Badge>
+                        </div>
+                        <p className="mt-2 text-sm text-zinc-400">{template.visualDirection}</p>
+                      </div>
+                      <div className="flex gap-2">
+                        <Link href={template.studioHref} className={cn(buttonVariants({ variant: "outline", size: "sm" }), "font-sans")}>Ficha</Link>
+                        {template.demoHref ? <Link href={template.demoHref} className={cn(buttonVariants({ size: "sm" }), "font-sans")}>Demo</Link> : null}
+                      </div>
                     </div>
-                    <p className="mt-2 text-sm text-zinc-400">{template.visualDirection}</p>
+                    <div className="mt-5 h-2 rounded-full bg-white/10">
+                      <div className="h-full rounded-full bg-white" style={{ width: `${score}%` }} />
+                    </div>
                   </div>
-                  <div className="flex gap-2">
-                    <Link href={template.studioHref} className={cn(buttonVariants({ variant: "outline", size: "sm" }), "font-sans")}>Ficha</Link>
-                    {template.demoHref ? <Link href={template.demoHref} className={cn(buttonVariants({ size: "sm" }), "font-sans")}>Demo</Link> : null}
-                  </div>
-                </div>
-              ))}
+                );
+              })}
             </CardContent>
           </Card>
 

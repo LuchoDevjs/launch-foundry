@@ -114,3 +114,14 @@ They live in:
 - `/integrations`
 
 A recipe should explain what it means in plain language, when to use it, what we need from the client, implementation steps, QA checks, and boundaries.
+
+## Template readiness
+
+Template Readiness measures whether a template is sellable instead of merely existing.
+
+It lives in:
+
+- `src/lib/studio/template-readiness.ts`
+- `src/content/studio/template-readiness.ts`
+
+Readiness should be visible in the Studio dashboard and each template ficha. A template should only move to ready when its weighted readiness is high and required launch checks pass.

@@ -1,6 +1,6 @@
 export const homeContent = {
   brand: "LaunchFoundry",
-  nav: ["Services", "System", "Ecommerce", "Process"],
+  nav: ["Templates", "Services", "System", "Ecommerce", "Process"],
   hero: {
     eyebrow: "Premium landing pages and storefronts",
     title: "A reusable web factory for landing pages that look custom.",

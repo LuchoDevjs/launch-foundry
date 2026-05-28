@@ -12,7 +12,7 @@ export function Header() {
         </a>
         <nav className="hidden items-center gap-8 text-sm text-slate-300 md:flex">
           {homeContent.nav.map((item) => (
-            <a key={item} href={`#${item.toLowerCase()}`} className="transition hover:text-white">
+            <a key={item} href={item === "Templates" ? "/templates" : `#${item.toLowerCase()}`} className="transition hover:text-white">
               {item}
             </a>
           ))}

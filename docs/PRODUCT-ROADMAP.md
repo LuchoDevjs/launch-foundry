@@ -142,3 +142,15 @@ They live in:
 - `src/content/studio/niche-demos.ts`
 
 Rule: a niche demo should reference its base template and intake. It should list what content changes, what sections remain, required integrations, and next actions.
+
+## Production pipeline
+
+The Production Pipeline is the operating line for turning a lead/client idea into a delivered website.
+
+It lives in:
+
+- `src/lib/studio/production-pipeline.ts`
+- `src/content/studio/production-pipeline.ts`
+- `/production`
+
+The goal is to avoid asking “where do we start?” Every project should move through intake, offer, template, niche demo, integrations, QA, and deploy/handoff.

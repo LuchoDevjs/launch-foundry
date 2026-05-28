@@ -53,7 +53,8 @@ export default function Home() {
               </CardDescription>
             </CardHeader>
             <CardContent className="flex flex-col gap-3 p-8 pt-0 sm:flex-row md:px-10 md:pb-10">
-              <Link href="/templates" className={cn(buttonVariants(), "font-sans")}>Explorar plantillas</Link>
+              <Link href="/production" className={cn(buttonVariants(), "font-sans")}>Abrir línea de producción</Link>
+              <Link href="/templates" className={cn(buttonVariants({ variant: "outline" }), "font-sans")}>Explorar plantillas</Link>
               <Link href="/demos/dark-premium" className={cn(buttonVariants({ variant: "outline" }), "font-sans")}>Ver demo pública</Link>
               <Link href="/checklist" className={cn(buttonVariants({ variant: "outline" }), "font-sans")}>Launch checklist</Link>
               <Link href="/integrations" className={cn(buttonVariants({ variant: "outline" }), "font-sans")}>Integraciones</Link>

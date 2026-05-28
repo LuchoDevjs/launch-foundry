@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 
 const nav = [
   { label: "Panel", href: "/" },
+  { label: "Producción", href: "/production" },
   { label: "Plantillas", href: "/templates" },
   { label: "Clientes", href: "/clients" },
   { label: "Sistema", href: "/system" },

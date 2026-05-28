@@ -66,7 +66,7 @@ Later:
 2. Improve the Studio panel to show offers, projects, and section library.
 3. Finish the Dark Premium demo quality pass.
 4. Create one real niche demo: Poker Coach, Local Business, or Ecommerce Storefront.
-5. Add a client intake form/schema.
+5. Add a client intake form/schema. ✅
 6. Add a launch checklist per client.
 7. Add integration recipes for Tiendanube, WhatsApp, forms, and Vercel.
 
@@ -79,3 +79,14 @@ A template is not “ready” until it has:
 - no internal Studio UI
 - deploy verification
 - screenshot review
+
+## Client intake
+
+Every client or niche demo should start with an intake record before implementation. The first version is file-based and lives in:
+
+- `src/lib/studio/intake.ts`
+- `src/content/studio/intakes.ts`
+- `/clients`
+- `/clients/[slug]`
+
+This keeps the user in orchestrator mode: they provide business context, screenshots, references, and approvals; Codex executes from a structured brief.

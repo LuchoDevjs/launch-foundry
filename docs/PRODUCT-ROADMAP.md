@@ -68,7 +68,7 @@ Later:
 4. Create one real niche demo: Poker Coach, Local Business, or Ecommerce Storefront.
 5. Add a client intake form/schema. ✅
 6. Add a launch checklist per client. ✅
-7. Add integration recipes for Tiendanube, WhatsApp, forms, and Vercel.
+7. Add integration recipes for Tiendanube, WhatsApp, forms, and Vercel. ✅
 
 ## Quality rule
 
@@ -102,3 +102,15 @@ The checklist is defined in:
 - `/checklist`
 
 A client project is not ready until all required checklist items pass.
+
+## Integration recipes
+
+Integration recipes are short operating playbooks for repeated client needs: WhatsApp, forms, Tiendanube, MercadoPago, Vercel/domain, and analytics.
+
+They live in:
+
+- `src/lib/studio/integration-recipes.ts`
+- `src/content/studio/integration-recipes.ts`
+- `/integrations`
+
+A recipe should explain what it means in plain language, when to use it, what we need from the client, implementation steps, QA checks, and boundaries.

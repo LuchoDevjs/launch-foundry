@@ -9,6 +9,7 @@ import { clientProjects } from "@/content/studio/client-projects";
 import { serviceOffers } from "@/content/studio/offers";
 import { sectionLibrary } from "@/content/studio/section-library";
 import { studioTemplates } from "@/content/studio/templates";
+import { integrationRecipes } from "@/content/studio/integration-recipes";
 import { cn } from "@/lib/utils";
 
 const statusLabel = {
@@ -24,6 +25,7 @@ const metrics = [
   { label: "Plantillas", value: studioTemplates.length.toString(), helper: "Activos reutilizables" },
   { label: "Proyectos", value: clientProjects.length.toString(), helper: "Clientes o demos nicho" },
   { label: "Secciones", value: sectionLibrary.length.toString(), helper: "Piezas para recombinar" },
+  { label: "Integraciones", value: integrationRecipes.length.toString(), helper: "Recetas para conectar" },
 ];
 
 export default function Home() {
@@ -50,6 +52,7 @@ export default function Home() {
               <Link href="/templates" className={cn(buttonVariants(), "font-sans")}>Explorar plantillas</Link>
               <Link href="/demos/dark-premium" className={cn(buttonVariants({ variant: "outline" }), "font-sans")}>Ver demo pública</Link>
               <Link href="/checklist" className={cn(buttonVariants({ variant: "outline" }), "font-sans")}>Launch checklist</Link>
+              <Link href="/integrations" className={cn(buttonVariants({ variant: "outline" }), "font-sans")}>Integraciones</Link>
             </CardContent>
           </Card>
 
@@ -80,7 +83,7 @@ export default function Home() {
           </Card>
         </div>
 
-        <div className="mt-6 grid gap-4 md:grid-cols-4">
+        <div className="mt-6 grid gap-4 md:grid-cols-5">
           {metrics.map((metric) => (
             <Card key={metric.label} className="border-white/10 bg-zinc-950 text-white">
               <CardHeader>

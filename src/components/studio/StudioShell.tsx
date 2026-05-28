@@ -10,6 +10,7 @@ const nav = [
   { label: "Clientes", href: "/clients" },
   { label: "Sistema", href: "/system" },
   { label: "Checklist", href: "/checklist" },
+  { label: "Integraciones", href: "/integrations" },
 ];
 
 export function StudioShell({ children }: { children: ReactNode }) {

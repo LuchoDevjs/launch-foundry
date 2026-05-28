@@ -48,3 +48,15 @@ Rule: shadcn/ui is allowed in `src/components/studio` and app routes that are pa
 - `/demos/[slug]`: public-facing demo that shows the template as a client would see it.
 
 Rule: never mix internal studio controls into demo routes. A demo route should be sellable or screenshot-ready.
+
+## Studio domain model
+
+The Studio domain model lives in:
+
+- `src/lib/studio/types.ts` — shared TypeScript contracts.
+- `src/content/studio/templates.ts` — template registry.
+- `src/content/studio/client-projects.ts` — client/project registry.
+- `src/content/studio/offers.ts` — sellable offers.
+- `src/content/studio/section-library.ts` — reusable section inventory.
+
+Rule: if something becomes reusable or sellable, it should be represented in the Studio model instead of living only as loose JSX.

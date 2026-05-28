@@ -67,7 +67,7 @@ Later:
 3. Finish the Dark Premium demo quality pass.
 4. Create one real niche demo: Poker Coach, Local Business, or Ecommerce Storefront.
 5. Add a client intake form/schema. ✅
-6. Add a launch checklist per client.
+6. Add a launch checklist per client. ✅
 7. Add integration recipes for Tiendanube, WhatsApp, forms, and Vercel.
 
 ## Quality rule
@@ -90,3 +90,15 @@ Every client or niche demo should start with an intake record before implementat
 - `/clients/[slug]`
 
 This keeps the user in orchestrator mode: they provide business context, screenshots, references, and approvals; Codex executes from a structured brief.
+
+## Launch checklist
+
+Before delivering any landing or ecommerce storefront, run the Launch Checklist at `/checklist`.
+
+The checklist is defined in:
+
+- `src/lib/studio/launch-checklist.ts`
+- `src/content/studio/launch-checklist.ts`
+- `/checklist`
+
+A client project is not ready until all required checklist items pass.

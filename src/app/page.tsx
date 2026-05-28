@@ -49,6 +49,7 @@ export default function Home() {
             <CardContent className="flex flex-col gap-3 p-8 pt-0 sm:flex-row md:px-10 md:pb-10">
               <Link href="/templates" className={cn(buttonVariants(), "font-sans")}>Explorar plantillas</Link>
               <Link href="/demos/dark-premium" className={cn(buttonVariants({ variant: "outline" }), "font-sans")}>Ver demo pública</Link>
+              <Link href="/checklist" className={cn(buttonVariants({ variant: "outline" }), "font-sans")}>Launch checklist</Link>
             </CardContent>
           </Card>
 
@@ -67,7 +68,7 @@ export default function Home() {
                 {[
                   "Pulir demo desktop y mobile",
                   "Crear ficha de nicho: Poker Coach",
-                  "Definir checklist de lanzamiento",
+                  "Usar checklist de lanzamiento",
                 ].map((step, index) => (
                   <div key={step} className="flex gap-3">
                     <span className="grid size-7 shrink-0 place-items-center rounded-full bg-white text-xs font-semibold text-black">{index + 1}</span>

@@ -9,6 +9,7 @@ const nav = [
   { label: "Plantillas", href: "/templates" },
   { label: "Clientes", href: "/clients" },
   { label: "Sistema", href: "/system" },
+  { label: "Checklist", href: "/checklist" },
 ];
 
 export function StudioShell({ children }: { children: ReactNode }) {

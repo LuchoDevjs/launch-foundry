@@ -1,0 +1,81 @@
+import type { LaunchChecklistItem } from "@/lib/studio/launch-checklist";
+
+export const launchChecklist: LaunchChecklistItem[] = [
+  {
+    id: "clear-offer",
+    category: "strategy",
+    title: "Oferta clara arriba del fold",
+    description: "El visitante entiende qué se vende, para quién es y qué acción debe tomar sin scrollear.",
+    required: true,
+  },
+  {
+    id: "single-primary-cta",
+    category: "strategy",
+    title: "CTA principal consistente",
+    description: "La acción principal se repite en hero, secciones clave y CTA final.",
+    required: true,
+  },
+  {
+    id: "real-copy",
+    category: "content",
+    title: "Copy sin placeholders",
+    description: "No queda texto genérico, ejemplos internos ni contenido inventado sin validar.",
+    required: true,
+  },
+  {
+    id: "trust-proof",
+    category: "content",
+    title: "Prueba de confianza",
+    description: "Incluye testimonios, logos, métricas, casos, garantías o señales de autoridad reales.",
+    required: false,
+  },
+  {
+    id: "visual-pass-desktop",
+    category: "design",
+    title: "Revisión visual desktop",
+    description: "Spacing, jerarquía, contraste, cards y botones se ven prolijos en desktop.",
+    required: true,
+  },
+  {
+    id: "visual-pass-mobile",
+    category: "responsive",
+    title: "Revisión visual mobile",
+    description: "La web se lee y navega bien en mobile; CTAs y secciones no quedan rotas.",
+    required: true,
+  },
+  {
+    id: "metadata",
+    category: "seo",
+    title: "Metadata básica",
+    description: "Title y description están escritos para el cliente/proyecto real.",
+    required: true,
+  },
+  {
+    id: "links-and-forms",
+    category: "integrations",
+    title: "Links, WhatsApp y formularios verificados",
+    description: "Todos los botones llevan al destino correcto antes de entregar.",
+    required: true,
+  },
+  {
+    id: "ecommerce-checkout",
+    category: "integrations",
+    title: "Checkout externo probado",
+    description: "Si hay Tiendanube, Shopify o MercadoPago, los botones apuntan a productos/categorías correctas.",
+    required: false,
+  },
+  {
+    id: "build-passes",
+    category: "performance",
+    title: "Build limpio",
+    description: "Lint, typecheck y build pasan antes de publicar.",
+    required: true,
+  },
+  {
+    id: "handoff-notes",
+    category: "handoff",
+    title: "Notas de entrega",
+    description: "Queda claro qué se entregó, qué falta y qué puede tocar el cliente si aplica.",
+    required: true,
+  },
+];

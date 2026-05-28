@@ -30,3 +30,12 @@ LaunchFoundry is a reusable system for building premium landing pages and ecomme
 - `src/components/ui`: small primitive UI components.
 - `src/content`: editable content per template/client.
 - `docs`: architecture and operating notes.
+
+## Separation of concerns
+
+LaunchFoundry has two different surfaces:
+
+1. Studio panel: our internal workspace for templates, clients, statuses, and demos. This surface can use shadcn/ui because it is a product/dashboard interface.
+2. Client templates: the public landing pages and storefronts we sell. These should use custom Tailwind/Motion components instead of shadcn so they feel bespoke and premium.
+
+Rule: shadcn/ui is allowed in `src/components/studio` and app routes that are part of the internal panel. Client-facing templates should use `src/components/template-ui` or template-specific components.

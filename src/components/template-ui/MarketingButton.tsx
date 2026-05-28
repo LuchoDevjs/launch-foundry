@@ -1,11 +1,14 @@
 import type { AnchorHTMLAttributes, ReactNode } from "react";
 
-type ButtonProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
+export function MarketingButton({
+  children,
+  variant = "primary",
+  className = "",
+  ...props
+}: AnchorHTMLAttributes<HTMLAnchorElement> & {
   children: ReactNode;
   variant?: "primary" | "secondary";
-};
-
-export function Button({ children, variant = "primary", className = "", ...props }: ButtonProps) {
+}) {
   const variants = {
     primary:
       "bg-blue-500 text-white shadow-[0_0_30px_rgba(59,130,246,0.35)] hover:bg-blue-400",

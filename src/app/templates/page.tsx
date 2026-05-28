@@ -1,8 +1,11 @@
 import Link from "next/link";
-import { Header } from "@/components/layout/Header";
-import { Footer } from "@/components/layout/Footer";
-import { Container } from "@/components/ui/Container";
+
+import { Badge } from "@/components/ui/badge";
+import { buttonVariants } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { StudioShell } from "@/components/studio/StudioShell";
 import { templates } from "@/content/templates";
+import { cn } from "@/lib/utils";
 
 export const metadata = {
   title: "Plantillas — LaunchFoundry",
@@ -11,48 +14,52 @@ export const metadata = {
 
 export default function TemplatesPage() {
   return (
-    <main className="min-h-screen bg-[#030712] text-white">
-      <Header />
-      <section className="pb-24 pt-36">
-        <Container>
+    <StudioShell>
+      <section className="mx-auto max-w-7xl px-6 py-10 lg:px-8">
+        <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div className="max-w-3xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-blue-300">Biblioteca de plantillas</p>
-            <h1 className="mt-4 text-5xl font-semibold tracking-tight sm:text-6xl">Nuestros puntos de partida reutilizables.</h1>
-            <p className="mt-6 text-lg leading-8 text-slate-300">
-              Acá guardamos las plantillas que vamos a reutilizar para futuros clientes. Cada proyecto mejora la fábrica.
+            <Badge variant="outline" className="border-white/15 text-zinc-300">Biblioteca</Badge>
+            <h1 className="mt-4 text-4xl font-semibold tracking-tight text-white md:text-6xl">
+              Plantillas reutilizables.
+            </h1>
+            <p className="mt-4 text-zinc-400">
+              Acá vive nuestro inventario: lo que ya podemos usar, lo que está en construcción y lo que viene después.
             </p>
           </div>
-          <div className="mt-12 grid gap-5 lg:grid-cols-3">
-            {templates.map((template) => {
-              const isAvailable = template.href !== "#";
+          <Link href="/" className={cn(buttonVariants({ variant: "outline" }), "font-sans")}>Volver al panel</Link>
+        </div>
 
-              return (
-                <article key={template.slug} className="rounded-[2rem] border border-white/10 bg-white/[0.04] p-6">
+        <div className="mt-8 grid gap-5 lg:grid-cols-3">
+          {templates.map((template) => {
+            const isAvailable = template.href !== "#";
+
+            return (
+              <Card key={template.slug} className="border-white/10 bg-zinc-950 text-white">
+                <CardHeader>
                   <div className="flex items-center justify-between gap-4">
-                    <p className="text-sm text-blue-200">{template.type}</p>
-                    <span className="rounded-full border border-white/10 px-3 py-1 text-xs text-slate-300">{template.status}</span>
+                    <Badge variant="outline" className="border-white/15 text-zinc-300">{template.type}</Badge>
+                    <Badge variant={template.status === "En progreso" ? "default" : "secondary"}>{template.status}</Badge>
                   </div>
-                  <h2 className="mt-8 text-2xl font-semibold text-white">{template.name}</h2>
-                  <p className="mt-4 leading-7 text-slate-400">{template.description}</p>
-                  <div className="mt-6 flex flex-wrap gap-2">
+                  <CardTitle className="pt-6 text-2xl text-white">{template.name}</CardTitle>
+                  <CardDescription className="leading-6">{template.description}</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="flex flex-wrap gap-2">
                     {template.bestFor.map((item) => (
-                      <span key={item} className="rounded-full bg-blue-400/10 px-3 py-1 text-sm text-blue-100">{item}</span>
+                      <Badge key={item} variant="secondary">{item}</Badge>
                     ))}
                   </div>
                   {isAvailable ? (
-                    <Link className="mt-8 inline-flex text-sm font-semibold text-blue-300 hover:text-blue-200" href={template.href}>
-                      Abrir demo →
-                    </Link>
+                    <Link href={template.href} className={cn(buttonVariants(), "mt-8 font-sans")}>Abrir demo</Link>
                   ) : (
-                    <p className="mt-8 text-sm text-slate-500">Más adelante</p>
+                    <p className="mt-8 text-sm text-zinc-500">Más adelante</p>
                   )}
-                </article>
-              );
-            })}
-          </div>
-        </Container>
+                </CardContent>
+              </Card>
+            );
+          })}
+        </div>
       </section>
-      <Footer />
-    </main>
+    </StudioShell>
   );
 }

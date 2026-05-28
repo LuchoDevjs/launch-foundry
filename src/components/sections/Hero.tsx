@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/Button";
+import { MarketingButton } from "@/components/template-ui/MarketingButton";
 import { Container } from "@/components/ui/Container";
 import { homeContent } from "@/content/home";
 
@@ -17,8 +17,8 @@ export function Hero() {
           {homeContent.hero.description}
         </p>
         <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-          <Button href="#system">{homeContent.hero.primaryCta}</Button>
-          <Button href="#ecommerce" variant="secondary">{homeContent.hero.secondaryCta}</Button>
+          <MarketingButton href="#system">{homeContent.hero.primaryCta}</MarketingButton>
+          <MarketingButton href="#ecommerce" variant="secondary">{homeContent.hero.secondaryCta}</MarketingButton>
         </div>
         <div className="mx-auto mt-16 grid max-w-3xl grid-cols-1 gap-4 sm:grid-cols-3">
           {homeContent.stats.map((stat) => (

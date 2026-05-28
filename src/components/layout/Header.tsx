@@ -1,5 +1,5 @@
 import { homeContent } from "@/content/home";
-import { Button } from "@/components/ui/Button";
+import { MarketingButton } from "@/components/template-ui/MarketingButton";
 import { Container } from "@/components/ui/Container";
 
 export function Header() {
@@ -17,7 +17,7 @@ export function Header() {
             </a>
           ))}
         </nav>
-        <Button href="#process" className="hidden md:inline-flex">Planear primera web</Button>
+        <MarketingButton href="#process" className="hidden md:inline-flex">Planear primera web</MarketingButton>
       </Container>
     </header>
   );

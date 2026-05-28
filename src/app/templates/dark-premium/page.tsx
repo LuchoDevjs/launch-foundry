@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
-import { Button } from "@/components/ui/Button";
+import { MarketingButton } from "@/components/template-ui/MarketingButton";
 
 export const metadata = {
   title: "Landing Dark Premium — LaunchFoundry",
@@ -51,8 +51,8 @@ export default function DarkPremiumTemplatePage() {
               Una plantilla oscura, minimalista y seria para vender servicios, captar leads y presentar una oferta con más autoridad.
             </p>
             <div className="mt-10 flex justify-center gap-4">
-              <Button href="#contacto" className="bg-red-500 shadow-[0_0_30px_rgba(239,68,68,0.45)] hover:bg-red-400">Agendar llamada</Button>
-              <Button href="#servicios" variant="secondary">Ver más</Button>
+              <MarketingButton href="#contacto" className="bg-red-500 shadow-[0_0_30px_rgba(239,68,68,0.45)] hover:bg-red-400">Agendar llamada</MarketingButton>
+              <MarketingButton href="#servicios" variant="secondary">Ver más</MarketingButton>
             </div>
           </div>
 

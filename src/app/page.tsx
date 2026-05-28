@@ -11,6 +11,7 @@ import { sectionLibrary } from "@/content/studio/section-library";
 import { studioTemplates } from "@/content/studio/templates";
 import { getTemplateReadiness } from "@/content/studio/template-readiness";
 import { integrationRecipes } from "@/content/studio/integration-recipes";
+import { nicheDemos } from "@/content/studio/niche-demos";
 import { calculateReadiness, getReadinessStatus } from "@/lib/studio/template-readiness";
 import { cn } from "@/lib/utils";
 
@@ -25,7 +26,8 @@ const statusLabel = {
 const metrics = [
   { label: "Ofertas vendibles", value: serviceOffers.length.toString(), helper: "Lo que podés salir a vender" },
   { label: "Plantillas", value: studioTemplates.length.toString(), helper: "Activos reutilizables" },
-  { label: "Proyectos", value: clientProjects.length.toString(), helper: "Clientes o demos nicho" },
+  { label: "Proyectos", value: clientProjects.length.toString(), helper: "Clientes o intakes" },
+  { label: "Demos nicho", value: nicheDemos.length.toString(), helper: "Derivadas de plantillas" },
   { label: "Secciones", value: sectionLibrary.length.toString(), helper: "Piezas para recombinar" },
   { label: "Integraciones", value: integrationRecipes.length.toString(), helper: "Recetas para conectar" },
 ];
@@ -85,7 +87,7 @@ export default function Home() {
           </Card>
         </div>
 
-        <div className="mt-6 grid gap-4 md:grid-cols-5">
+        <div className="mt-6 grid gap-4 md:grid-cols-3 xl:grid-cols-6">
           {metrics.map((metric) => (
             <Card key={metric.label} className="border-white/10 bg-zinc-950 text-white">
               <CardHeader>
@@ -123,8 +125,8 @@ export default function Home() {
 
           <Card className="border-white/10 bg-zinc-950 text-white">
             <CardHeader>
-              <CardTitle className="text-white">Proyectos / demos nicho</CardTitle>
-              <CardDescription>Acá aparecen clientes reales o demos para vender mejor.</CardDescription>
+              <CardTitle className="text-white">Proyectos / intakes</CardTitle>
+              <CardDescription>Briefs ordenados para arrancar sin caos.</CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
               {clientProjects.map((project) => (
@@ -143,6 +145,33 @@ export default function Home() {
             </CardContent>
           </Card>
         </div>
+
+
+        <Card className="mt-6 border-white/10 bg-zinc-950 text-white">
+          <CardHeader>
+            <CardTitle className="text-white">Demos de nicho</CardTitle>
+            <CardDescription>Versiones específicas que nacen desde una plantilla base.</CardDescription>
+          </CardHeader>
+          <CardContent className="grid gap-4 md:grid-cols-2">
+            {nicheDemos.map((demo) => (
+              <div key={demo.slug} className="rounded-2xl border border-white/10 bg-white/[0.03] p-5">
+                <div className="flex items-start justify-between gap-4">
+                  <div>
+                    <p className="font-medium text-white">{demo.name}</p>
+                    <p className="mt-2 text-sm leading-6 text-zinc-400">{demo.goal}</p>
+                  </div>
+                  <Badge>{statusLabel[demo.status]}</Badge>
+                </div>
+                <div className="mt-5 flex flex-wrap gap-2">
+                  <Badge variant="secondary">Base: {demo.baseTemplateSlug}</Badge>
+                  <Badge variant="outline">{demo.industry}</Badge>
+                </div>
+                <Separator className="my-5" />
+                <p className="text-sm text-zinc-300"><span className="text-zinc-500">Siguiente:</span> {demo.nextActions[0]}</p>
+              </div>
+            ))}
+          </CardContent>
+        </Card>
 
         <div className="mt-6 grid gap-6 xl:grid-cols-[0.95fr_1.05fr]">
           <Card className="border-white/10 bg-zinc-950 text-white">

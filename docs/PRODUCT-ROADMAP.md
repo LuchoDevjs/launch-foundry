@@ -125,3 +125,20 @@ It lives in:
 - `src/content/studio/template-readiness.ts`
 
 Readiness should be visible in the Studio dashboard and each template ficha. A template should only move to ready when its weighted readiness is high and required launch checks pass.
+
+## Niche demos
+
+Niche demos are specific versions derived from reusable templates. They let us sell faster without starting from zero.
+
+Example:
+
+- Base template: `dark-premium`
+- Intake: `poker-coach-demo`
+- Niche demo: `poker-coach`
+
+They live in:
+
+- `src/lib/studio/niche-demo.ts`
+- `src/content/studio/niche-demos.ts`
+
+Rule: a niche demo should reference its base template and intake. It should list what content changes, what sections remain, required integrations, and next actions.

@@ -12,12 +12,12 @@ export function Header() {
         </a>
         <nav className="hidden items-center gap-8 text-sm text-slate-300 md:flex">
           {homeContent.nav.map((item) => (
-            <a key={item} href={item === "Templates" ? "/templates" : `#${item.toLowerCase()}`} className="transition hover:text-white">
+            <a key={item} href={item === "Plantillas" ? "/templates" : `#${item.toLowerCase()}`} className="transition hover:text-white">
               {item}
             </a>
           ))}
         </nav>
-        <Button href="#process" className="hidden md:inline-flex">Plan first build</Button>
+        <Button href="#process" className="hidden md:inline-flex">Planear primera web</Button>
       </Container>
     </header>
   );

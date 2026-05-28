@@ -1,55 +1,55 @@
 export const homeContent = {
   brand: "LaunchFoundry",
-  nav: ["Templates", "Services", "System", "Ecommerce", "Process"],
+  nav: ["Plantillas", "Servicios", "Sistema", "Ecommerce", "Proceso"],
   hero: {
-    eyebrow: "Premium landing pages and storefronts",
-    title: "A reusable web factory for landing pages that look custom.",
+    eyebrow: "Landing pages premium y tiendas conectadas",
+    title: "Una fábrica reusable para crear webs que parecen hechas a medida.",
     description:
-      "LaunchFoundry is the base system for building premium landing pages and ecommerce storefronts fast: polished design, reusable blocks, and clean integrations.",
-    primaryCta: "Start with a template",
-    secondaryCta: "See the system",
+      "LaunchFoundry es nuestro sistema base para construir landing pages premium y vidrieras ecommerce rápido: buen diseño, bloques reutilizables e integraciones limpias.",
+    primaryCta: "Ver plantillas",
+    secondaryCta: "Ver sistema",
   },
   stats: [
-    { value: "3", label: "starter templates" },
-    { value: "12+", label: "reusable sections" },
-    { value: "1", label: "codebase to scale" },
+    { value: "3", label: "plantillas iniciales" },
+    { value: "12+", label: "secciones reusables" },
+    { value: "1", label: "base para escalar" },
   ],
   services: [
     {
-      title: "Premium Landing Pages",
+      title: "Landing Pages Premium",
       description:
-        "For coaches, local businesses, agencies, courses, and service offers that need a sharp page to convert traffic into calls or leads.",
+        "Para coaches, negocios locales, agencias, cursos y servicios que necesitan convertir visitas en consultas o llamadas.",
     },
     {
-      title: "Ecommerce Storefronts",
+      title: "Vidrieras Ecommerce",
       description:
-        "A beautiful coded storefront connected to Tiendanube as the sales engine for stock, checkout, payments, and orders.",
+        "Una web hermosa en código conectada a Tiendanube como motor de ventas para stock, checkout, pagos y pedidos.",
     },
     {
-      title: "Reusable Templates",
+      title: "Plantillas Reutilizables",
       description:
-        "Every project becomes reusable: sections, themes, copy patterns, and layouts get saved back into the system.",
+        "Cada proyecto deja piezas listas para reutilizar: secciones, estilos, estructura y patrones de venta.",
     },
   ],
   templates: [
-    "Dark premium SaaS / coach",
-    "Clean professional services",
-    "Premium ecommerce storefront",
+    "Dark premium para coaches / SaaS",
+    "Servicios profesionales clara",
+    "Vidriera ecommerce premium",
   ],
   ecommerce: {
-    title: "The storefront is ours. The cash register is Tiendanube.",
+    title: "La vidriera es nuestra. La caja registradora es Tiendanube.",
     description:
-      "We build the public-facing experience in code, then send buyers to Tiendanube for product pages, cart, checkout, payments, stock, and order management.",
+      "Nosotros construimos la experiencia pública en código y mandamos al comprador a Tiendanube para productos, carrito, checkout, pagos, stock y gestión de pedidos.",
     bullets: [
-      "Custom homepage and product highlights",
-      "Buttons that link to Tiendanube products or categories",
-      "Optional product sync later if the client grows",
+      "Home custom y productos destacados",
+      "Botones hacia productos o categorías de Tiendanube",
+      "Más adelante podemos sumar sincronización de productos si el cliente crece",
     ],
   },
   process: [
-    "Pick the closest template",
-    "Replace brand, copy, photos, and offer",
-    "Connect forms, WhatsApp, analytics, or Tiendanube",
-    "Deploy, review, improve, and save reusable pieces",
+    "Elegimos la plantilla más cercana",
+    "Cambiamos marca, textos, fotos y oferta",
+    "Conectamos formularios, WhatsApp, analytics o Tiendanube",
+    "Deployamos, revisamos, mejoramos y guardamos piezas reutilizables",
   ],
 };

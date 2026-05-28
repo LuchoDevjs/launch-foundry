@@ -1,32 +1,32 @@
 export const templates = [
   {
     slug: "dark-premium",
-    name: "Dark Premium Landing",
+    name: "Landing Dark Premium",
     type: "Landing Page",
-    status: "In progress",
+    status: "En progreso",
     description:
-      "A high-end dark landing page for coaches, SaaS offers, agencies, and premium service businesses.",
-    bestFor: ["Coaches", "Consultants", "SaaS", "Agencies"],
+      "Una landing oscura, elegante y de alto impacto para coaches, SaaS, agencias y servicios premium.",
+    bestFor: ["Coaches", "Consultores", "SaaS", "Agencias"],
     href: "/templates/dark-premium",
   },
   {
     slug: "local-business",
-    name: "Local Business Pro",
+    name: "Negocio Local Pro",
     type: "Landing Page",
-    status: "Planned",
+    status: "Planeada",
     description:
-      "A clean conversion page for local services that need calls, WhatsApp messages, and trust quickly.",
-    bestFor: ["Dentists", "Lawyers", "Plumbers", "Clinics"],
+      "Una página clara y vendedora para negocios locales que necesitan llamadas, WhatsApp y confianza rápido.",
+    bestFor: ["Dentistas", "Abogados", "Plomeros", "Clínicas"],
     href: "#",
   },
   {
     slug: "tiendanube-storefront",
-    name: "Tiendanube Storefront",
+    name: "Vidriera Tiendanube",
     type: "Ecommerce",
-    status: "Planned",
+    status: "Planeada",
     description:
-      "A premium storefront that works as the beautiful front window while Tiendanube handles checkout and stock.",
-    bestFor: ["Fashion", "Beauty", "Accessories", "Home goods"],
+      "Una vidriera premium que muestra la marca y deriva la compra a Tiendanube para stock, carrito y pagos.",
+    bestFor: ["Ropa", "Belleza", "Accesorios", "Deco"],
     href: "#",
   },
 ];

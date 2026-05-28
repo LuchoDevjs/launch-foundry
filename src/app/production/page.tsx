@@ -6,7 +6,9 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Separator } from "@/components/ui/separator";
 import { StudioShell } from "@/components/studio/StudioShell";
 import { productionPipeline } from "@/content/studio/production-pipeline";
+import { projectProductionStates } from "@/content/studio/project-production";
 import { productionStatusLabels } from "@/lib/studio/production-pipeline";
+import { calculateProjectProgress } from "@/lib/studio/project-production";
 import { cn } from "@/lib/utils";
 
 export const metadata = {
@@ -40,6 +42,56 @@ export default function ProductionPage() {
             </CardContent>
           </Card>
         </div>
+
+        <Card className="mt-8 border-white/10 bg-zinc-950 text-white">
+          <CardHeader>
+            <CardTitle className="text-white">Estado por proyecto</CardTitle>
+            <CardDescription>Acá vemos en qué parte de la fábrica está cada web.</CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-5">
+            {projectProductionStates.map((project) => {
+              const progress = calculateProjectProgress(project.steps);
+              const currentStep = productionPipeline.find((step) => step.id === project.currentStepId);
+
+              return (
+                <div key={project.projectSlug} className="rounded-2xl border border-white/10 bg-white/[0.03] p-5">
+                  <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
+                    <div>
+                      <div className="flex flex-wrap items-center gap-2">
+                        <h2 className="text-lg font-semibold text-white">{project.projectName}</h2>
+                        <Badge>{progress}%</Badge>
+                        {currentStep ? <Badge variant="secondary">Ahora: {currentStep.title}</Badge> : null}
+                      </div>
+                      <p className="mt-2 text-sm text-zinc-400">Progreso real de producción, no solo páginas sueltas.</p>
+                    </div>
+                    <Link href={`/clients/${project.projectSlug}`} className={cn(buttonVariants({ variant: "outline", size: "sm" }), "font-sans")}>Abrir ficha</Link>
+                  </div>
+                  <div className="mt-5 h-2 rounded-full bg-white/10">
+                    <div className="h-full rounded-full bg-white" style={{ width: `${progress}%` }} />
+                  </div>
+                  <div className="mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
+                    {project.steps.map((projectStep) => {
+                      const step = productionPipeline.find((item) => item.id === projectStep.stepId);
+                      if (!step) return null;
+
+                      return (
+                        <div key={projectStep.stepId} className="rounded-xl border border-white/10 bg-black/30 p-4">
+                          <div className="flex items-start justify-between gap-3">
+                            <p className="text-sm font-medium text-white">{step.title}</p>
+                            <Badge variant={projectStep.status === "done" ? "default" : "secondary"}>
+                              {productionStatusLabels[projectStep.status]}
+                            </Badge>
+                          </div>
+                          <p className="mt-3 text-xs leading-5 text-zinc-500">{projectStep.note}</p>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              );
+            })}
+          </CardContent>
+        </Card>
 
         <div className="mt-10 space-y-5">
           {productionPipeline.map((step, index) => (

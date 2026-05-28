@@ -154,3 +154,15 @@ It lives in:
 - `/production`
 
 The goal is to avoid asking “where do we start?” Every project should move through intake, offer, template, niche demo, integrations, QA, and deploy/handoff.
+
+## Project production state
+
+Production Pipeline shows the generic factory steps. Project Production State tracks where each specific project is inside that factory.
+
+It lives in:
+
+- `src/lib/studio/project-production.ts`
+- `src/content/studio/project-production.ts`
+- `/production`
+
+This lets the Studio show real progress per client/demo instead of a static process diagram.

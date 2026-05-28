@@ -39,3 +39,12 @@ LaunchFoundry has two different surfaces:
 2. Client templates: the public landing pages and storefronts we sell. These should use custom Tailwind/Motion components instead of shadcn so they feel bespoke and premium.
 
 Rule: shadcn/ui is allowed in `src/components/studio` and app routes that are part of the internal panel. Client-facing templates should use `src/components/template-ui` or template-specific components.
+
+## Route model
+
+- `/`: internal studio dashboard.
+- `/templates`: internal template library.
+- `/templates/[slug]`: internal template ficha with status, sections, notes, and work checklist.
+- `/demos/[slug]`: public-facing demo that shows the template as a client would see it.
+
+Rule: never mix internal studio controls into demo routes. A demo route should be sellable or screenshot-ready.

@@ -85,8 +85,8 @@ export default function Home() {
                     </div>
                     <p className="mt-1 text-sm text-zinc-400">{template.description}</p>
                   </div>
-                  {template.href !== "#" ? (
-                    <Link href={template.href} className={cn(buttonVariants({ variant: "outline", size: "sm" }), "font-sans")}>Abrir</Link>
+                  {template.studioHref !== "#" ? (
+                    <Link href={template.studioHref} className={cn(buttonVariants({ variant: "outline", size: "sm" }), "font-sans")}>Abrir</Link>
                   ) : (
                     <Badge variant="outline">Más adelante</Badge>
                   )}

@@ -31,7 +31,7 @@ export default function TemplatesPage() {
 
         <div className="mt-8 grid gap-5 lg:grid-cols-3">
           {templates.map((template) => {
-            const isAvailable = template.href !== "#";
+            const isAvailable = template.studioHref !== "#";
 
             return (
               <Card key={template.slug} className="border-white/10 bg-zinc-950 text-white">
@@ -50,7 +50,7 @@ export default function TemplatesPage() {
                     ))}
                   </div>
                   {isAvailable ? (
-                    <Link href={template.href} className={cn(buttonVariants(), "mt-8 font-sans")}>Abrir demo</Link>
+                    <Link href={template.studioHref} className={cn(buttonVariants(), "mt-8 font-sans")}>Abrir demo</Link>
                   ) : (
                     <p className="mt-8 text-sm text-zinc-500">Más adelante</p>
                   )}

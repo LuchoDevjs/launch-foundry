@@ -1,97 +1,103 @@
 import Link from "next/link";
-import { Container } from "@/components/ui/Container";
-import { MarketingButton } from "@/components/template-ui/MarketingButton";
+import { notFound } from "next/navigation";
+
+import { Badge } from "@/components/ui/badge";
+import { buttonVariants } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
+import { StudioShell } from "@/components/studio/StudioShell";
+import { getTemplateBySlug } from "@/content/templates";
+import { cn } from "@/lib/utils";
 
 export const metadata = {
   title: "Landing Dark Premium — LaunchFoundry",
-  description: "Primera plantilla premium oscura reutilizable.",
+  description: "Ficha interna de la plantilla Landing Dark Premium.",
 };
 
-const trustLogos = ["Shopify Partner", "Meta Ads", "Google Partner", "Tiendanube"];
-const comparison = [
-  ["Comunicación reactiva", "Comunicación constante y proactiva"],
-  ["Estrategia genérica", "Solución pensada para cada negocio"],
-  ["Diseño copiado", "Sistema visual propio y reusable"],
-  ["Sin investigación", "Oferta y mensaje antes de diseñar"],
-];
+export default function DarkPremiumTemplateStudioPage() {
+  const template = getTemplateBySlug("dark-premium");
 
-export default function DarkPremiumTemplatePage() {
+  if (!template) {
+    notFound();
+  }
+
   return (
-    <main className="min-h-screen overflow-hidden bg-black text-white">
-      <section className="relative min-h-screen pb-24 pt-8">
-        <div className="absolute inset-x-0 top-0 -z-10 h-64 bg-[radial-gradient(circle_at_70%_0%,rgba(239,68,68,0.42),transparent_34%),linear-gradient(90deg,transparent,rgba(248,113,113,0.16),transparent)]" />
-        <div className="absolute inset-x-0 top-[410px] -z-10 mx-auto h-56 max-w-xl rounded-full bg-[radial-gradient(circle,rgba(251,146,60,0.55),rgba(239,68,68,0.18)_38%,transparent_70%)] blur-2xl" />
-        <Container>
-          <header className="mx-auto flex max-w-4xl items-center justify-between rounded-2xl border border-white/10 bg-white/[0.035] px-4 py-3 backdrop-blur-xl">
-            <Link href="/templates" className="text-sm text-slate-300 hover:text-white">← Plantillas</Link>
-            <nav className="hidden items-center gap-6 text-xs text-slate-300 md:flex">
-              <a href="#resultados">Resultados</a>
-              <a href="#servicios">Servicios</a>
-              <a href="#proceso">Proceso</a>
-              <a href="#faq">FAQ</a>
-            </nav>
-            <a className="rounded-xl bg-red-500 px-4 py-2 text-xs font-semibold text-white shadow-[0_0_24px_rgba(239,68,68,0.45)]" href="#contacto">
-              Agendar llamada
-            </a>
-          </header>
-
-          <div className="mx-auto max-w-5xl py-28 text-center">
-            <div className="mx-auto mb-7 flex w-fit items-center gap-3 text-xs text-slate-300">
-              <div className="flex -space-x-2">
-                <span className="size-7 rounded-full bg-red-200" />
-                <span className="size-7 rounded-full bg-blue-200" />
-                <span className="size-7 rounded-full bg-zinc-200" />
-              </div>
-              <span>200+ negocios listos para escalar</span>
+    <StudioShell>
+      <section className="mx-auto max-w-7xl px-6 py-10 lg:px-8">
+        <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
+          <div className="max-w-3xl">
+            <div className="flex flex-wrap items-center gap-3">
+              <Badge variant="outline" className="border-white/15 text-zinc-300">Ficha interna</Badge>
+              <Badge>{template.status}</Badge>
+              <Badge variant="secondary">{template.type}</Badge>
             </div>
-            <h1 className="text-balance text-5xl font-medium tracking-[-0.06em] sm:text-7xl">
-              ¿Listo para escalar tu marca con una web premium?
-            </h1>
-            <p className="mx-auto mt-6 max-w-2xl text-pretty text-base leading-7 text-slate-400">
-              Una plantilla oscura, minimalista y seria para vender servicios, captar leads y presentar una oferta con más autoridad.
-            </p>
-            <div className="mt-10 flex justify-center gap-4">
-              <MarketingButton href="#contacto" className="bg-red-500 shadow-[0_0_30px_rgba(239,68,68,0.45)] hover:bg-red-400">Agendar llamada</MarketingButton>
-              <MarketingButton href="#servicios" variant="secondary">Ver más</MarketingButton>
-            </div>
+            <h1 className="mt-5 text-4xl font-semibold tracking-tight text-white md:text-6xl">{template.name}</h1>
+            <p className="mt-4 text-lg leading-8 text-zinc-400">{template.description}</p>
           </div>
+          <div className="flex gap-3">
+            <Link href="/templates" className={cn(buttonVariants({ variant: "outline" }), "font-sans")}>Volver</Link>
+            {template.demoHref ? (
+              <Link href={template.demoHref} className={cn(buttonVariants(), "font-sans")}>Abrir demo pública</Link>
+            ) : null}
+          </div>
+        </div>
 
-          <div id="resultados" className="mx-auto max-w-4xl text-center">
-            <p className="mb-8 text-sm text-slate-500">Estás en buenas manos</p>
-            <div className="grid grid-cols-2 gap-5 opacity-70 md:grid-cols-4">
-              {trustLogos.map((logo) => (
-                <div key={logo} className="rounded-2xl border border-white/10 bg-white/[0.03] px-4 py-5 text-sm text-slate-300">{logo}</div>
+        <div className="mt-8 grid gap-6 lg:grid-cols-[0.8fr_1.2fr]">
+          <Card className="border-white/10 bg-zinc-950 text-white">
+            <CardHeader>
+              <CardTitle>Sirve para</CardTitle>
+              <CardDescription>Casos donde esta plantilla debería funcionar bien.</CardDescription>
+            </CardHeader>
+            <CardContent className="flex flex-wrap gap-2">
+              {template.bestFor.map((item) => <Badge key={item} variant="secondary">{item}</Badge>)}
+            </CardContent>
+          </Card>
+
+          <Card className="border-white/10 bg-zinc-950 text-white">
+            <CardHeader>
+              <CardTitle>Secciones planeadas</CardTitle>
+              <CardDescription>La estructura reusable que después adaptamos por cliente.</CardDescription>
+            </CardHeader>
+            <CardContent className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              {template.sections.map((section) => (
+                <div key={section} className="rounded-xl border border-white/10 bg-white/[0.03] p-4 text-sm text-zinc-200">{section}</div>
               ))}
-            </div>
-          </div>
-        </Container>
-      </section>
+            </CardContent>
+          </Card>
+        </div>
 
-      <section id="servicios" className="relative py-24">
-        <div className="absolute right-0 top-0 -z-10 h-96 w-72 bg-red-500/20 blur-3xl" />
-        <Container>
-          <div className="mx-auto max-w-3xl text-center">
-            <p className="text-sm text-slate-500">Comparación</p>
-            <h2 className="mt-4 text-4xl font-medium tracking-[-0.04em] text-white sm:text-5xl">
-              ¿Por qué trabajar con esta plantilla?
-            </h2>
-          </div>
-          <div className="mx-auto mt-12 grid max-w-4xl gap-5 md:grid-cols-2">
-            <div className="rounded-[2rem] border border-white/10 bg-white/[0.03] p-6">
-              <h3 className="text-lg text-slate-500">Otras webs</h3>
-              <div className="mt-6 space-y-4">
-                {comparison.map(([bad]) => <p key={bad} className="text-sm text-slate-400">× {bad}</p>)}
-              </div>
-            </div>
-            <div className="rounded-[2rem] border border-red-300/20 bg-[radial-gradient(circle_at_80%_0%,rgba(239,68,68,0.35),rgba(255,255,255,0.035)_38%)] p-6">
-              <h3 className="text-lg text-white">LaunchFoundry</h3>
-              <div className="mt-6 space-y-4">
-                {comparison.map(([, good]) => <p key={good} className="text-sm text-slate-200">✓ {good}</p>)}
-              </div>
-            </div>
-          </div>
-        </Container>
+        <div className="mt-6 grid gap-6 lg:grid-cols-2">
+          <Card className="border-white/10 bg-zinc-950 text-white">
+            <CardHeader>
+              <CardTitle>Falta hacer</CardTitle>
+              <CardDescription>Checklist de construcción.</CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              {template.todo.map((item, index) => (
+                <div key={item} className="flex gap-3">
+                  <span className="grid size-7 shrink-0 place-items-center rounded-full bg-white text-xs font-semibold text-black">{index + 1}</span>
+                  <p className="text-sm text-zinc-300">{item}</p>
+                </div>
+              ))}
+            </CardContent>
+          </Card>
+
+          <Card className="border-white/10 bg-zinc-950 text-white">
+            <CardHeader>
+              <CardTitle>Notas de arquitectura</CardTitle>
+              <CardDescription>Reglas para no ensuciar la fábrica.</CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              {template.notes.map((note) => (
+                <div key={note}>
+                  <p className="text-sm text-zinc-300">{note}</p>
+                  <Separator className="mt-4" />
+                </div>
+              ))}
+            </CardContent>
+          </Card>
+        </div>
       </section>
-    </main>
+    </StudioShell>
   );
 }

@@ -1,6 +1,10 @@
+import Link from "next/link";
+
 import { Badge } from "@/components/ui/badge";
+import { buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { StudioShell } from "@/components/studio/StudioShell";
+import { cn } from "@/lib/utils";
 import { serviceOffers } from "@/content/studio/offers";
 import { sectionLibrary } from "@/content/studio/section-library";
 
@@ -25,6 +29,7 @@ export default function SystemPage() {
           <Badge variant="outline" className="border-white/15 text-zinc-300">Sistema</Badge>
           <h1 className="mt-4 text-4xl font-semibold tracking-tight text-white md:text-6xl">Las reglas para que la fábrica no se vuelva caos.</h1>
           <p className="mt-4 text-zinc-400">Esta página resume cómo pensamos el negocio y la herramienta a largo plazo.</p>
+          <Link href="/system/components" className={cn(buttonVariants({ variant: "outline" }), "mt-6 font-sans")}>Ver componentes públicos</Link>
         </div>
 
         <div className="mt-8 grid gap-6 lg:grid-cols-3">

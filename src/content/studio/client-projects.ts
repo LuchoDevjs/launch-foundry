@@ -2,15 +2,15 @@ import type { ClientProject } from "@/lib/studio/types";
 
 export const clientProjects: ClientProject[] = [
   {
-    slug: "poker-coach-demo",
-    clientName: "Poker Coach Demo",
+    slug: "dark-premium-template",
+    clientName: "Landing Dark Premium",
     offerType: "landing",
-    status: "idea",
+    status: "in-progress",
     templateSlug: "dark-premium",
-    businessGoal: "Captar alumnos para coaching de cash games NL25/NL50.",
-    nextAction: "Crear demo específica a partir de Landing Dark Premium.",
+    businessGoal: "Crear una plantilla dark premium excelente para servicios de alto valor.",
+    nextAction: "Elegir nicho demandado y mejorar /demos/dark-premium al máximo.",
     links: {
-      preview: "/clients/poker-coach-demo",
+      preview: "/templates/dark-premium",
     },
   },
 ];

@@ -2,14 +2,14 @@ import type { ProjectProductionState } from "@/lib/studio/project-production";
 
 export const projectProductionStates: ProjectProductionState[] = [
   {
-    projectSlug: "poker-coach-demo",
-    projectName: "Poker Coach Demo",
-    currentStepId: "integrations",
+    projectSlug: "dark-premium-template",
+    projectName: "Landing Dark Premium",
+    currentStepId: "niche-demo",
     steps: [
       {
         stepId: "intake",
         status: "done",
-        note: "Ficha base creada con objetivo, audiencia, referencias e integraciones.",
+        note: "Dirección base definida: landing dark premium para servicios de alto valor.",
       },
       {
         stepId: "offer",
@@ -19,22 +19,22 @@ export const projectProductionStates: ProjectProductionState[] = [
       {
         stepId: "template",
         status: "done",
-        note: "Plantilla base sugerida: Landing Dark Premium.",
+        note: "Plantilla base: Dark Premium.",
       },
       {
         stepId: "niche-demo",
-        status: "done",
-        note: "Ruta visible /demos/poker-coach creada con contenido específico.",
+        status: "ready",
+        note: "Falta elegir historia/nicho y convertir /demos/dark-premium en una demo excelente.",
       },
       {
         stepId: "integrations",
-        status: "ready",
+        status: "not-started",
         note: "Probables integraciones: WhatsApp, formulario y Vercel.",
       },
       {
         stepId: "qa",
         status: "not-started",
-        note: "Se corre cuando exista la demo específica.",
+        note: "Se corre cuando Dark Premium esté visualmente fuerte.",
       },
       {
         stepId: "deploy",

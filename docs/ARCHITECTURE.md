@@ -60,3 +60,9 @@ The Studio domain model lives in:
 - `src/content/studio/section-library.ts` — reusable section inventory.
 
 Rule: if something becomes reusable or sellable, it should be represented in the Studio model instead of living only as loose JSX.
+
+## Public premium component system
+
+Client-facing demos should use reusable public components in `src/components/public`. These are inspired by Framer-like reuse: premium buttons, cards, glow backgrounds, section headers, trust rows, and FAQ blocks.
+
+Rule: Studio components (`src/components/ui` + shadcn) are for internal workflow. Public demo components (`src/components/public`) are for sellable landing pages and should feel bespoke.

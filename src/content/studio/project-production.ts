@@ -4,7 +4,7 @@ export const projectProductionStates: ProjectProductionState[] = [
   {
     projectSlug: "poker-coach-demo",
     projectName: "Poker Coach Demo",
-    currentStepId: "niche-demo",
+    currentStepId: "integrations",
     steps: [
       {
         stepId: "intake",
@@ -23,12 +23,12 @@ export const projectProductionStates: ProjectProductionState[] = [
       },
       {
         stepId: "niche-demo",
-        status: "ready",
-        note: "Falta crear la ruta visible /demos/poker-coach.",
+        status: "done",
+        note: "Ruta visible /demos/poker-coach creada con contenido específico.",
       },
       {
         stepId: "integrations",
-        status: "not-started",
+        status: "ready",
         note: "Probables integraciones: WhatsApp, formulario y Vercel.",
       },
       {

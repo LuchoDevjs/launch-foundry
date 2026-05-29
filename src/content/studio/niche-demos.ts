@@ -4,7 +4,7 @@ export const nicheDemos: NicheDemo[] = [
   {
     slug: "poker-coach",
     name: "Poker Coach Demo",
-    status: "idea",
+    status: "in-progress",
     baseTemplateSlug: "dark-premium",
     intakeSlug: "poker-coach-demo",
     industry: "Coaching / Poker",
@@ -20,8 +20,8 @@ export const nicheDemos: NicheDemo[] = [
     keptSections: ["Hero", "Prueba social", "Comparación", "Servicios", "Proceso", "FAQ", "CTA final"],
     requiredIntegrations: ["vercel", "whatsapp", "forms"],
     nextActions: [
-      "Crear contenido específico de Poker Coach",
-      "Crear ruta /demos/poker-coach",
+      "Pulir copy específico de Poker Coach",
+      "Revisar visualmente /demos/poker-coach",
       "Revisar si el estilo dark/red sirve o si conviene azul premium",
     ],
   },
